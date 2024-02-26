@@ -9,7 +9,6 @@ export default function App() {
       <StatusBar style="light" />
       <Text style={styles.headerText}>To do:</Text>
       <TodoList />
-      <Text style={styles.headerText}>Done:</Text>
     </View>
   );
 }
