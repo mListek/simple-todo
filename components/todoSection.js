@@ -4,16 +4,13 @@ import { Ionicons } from "@expo/vector-icons";
 
 import colors from "../global/colors";
 
-const TodoSection = ({ item }) => {
+const TodoSection = ({ item, deleteTodo }) => {
   const [todoContent, setTodoContent] = useState(item.content);
   const [isDone, setIsDone] = useState(false);
 
   const handleIsDone = () => {
     setIsDone((prev) => !prev);
-    setTimeout(() => {
-      // delete current item
-      setTodoContent(""); // temporary
-    }, 1500);
+    deleteTodo(item.id);
   };
 
   const handleTextChange = (enteredValue) => {
@@ -48,6 +45,7 @@ const TodoSection = ({ item }) => {
         <TextInput
           style={styles.textInput}
           keyboardAppearance="dark"
+          autoFocus={true}
           value={todoContent}
           onChangeText={handleTextChange}
           onEndEditing={handleSaveChanges}
