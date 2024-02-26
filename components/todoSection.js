@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import { View, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -24,22 +24,12 @@ const TodoSection = ({ item, deleteTodo }) => {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        {!isDone && (
-          <Ionicons
-            name="ellipse-outline"
-            size={30}
-            color={colors.neonOrange}
-            onPress={handleIsDone}
-          />
-        )}
-        {isDone && (
-          <Ionicons
-            name="checkmark-circle-outline"
-            size={28}
-            color={colors.neonOrange}
-            onPress={handleIsDone}
-          />
-        )}
+        <Ionicons
+          name={isDone ? "checkmark-circle-outline" : "ellipse-outline"}
+          size={30}
+          color={colors.neonOrange}
+          onPress={handleIsDone}
+        />
       </View>
       <View style={styles.inputContainer}>
         <TextInput
