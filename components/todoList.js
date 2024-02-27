@@ -66,7 +66,11 @@ const TodoList = () => {
         data={todoList}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TodoSection item={item} deleteTodo={deleteTodo} />
+          <TodoSection
+            item={item}
+            deleteTodo={deleteTodo}
+            updateTodo={updateTodo}
+          />
         )}
       />
       <View style={styles.buttonContainer}>

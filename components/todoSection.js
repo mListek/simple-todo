@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import colors from "../global/colors";
 
-const TodoSection = ({ item, deleteTodo }) => {
+const TodoSection = ({ item, deleteTodo, updateTodo }) => {
   const [todoContent, setTodoContent] = useState(item.content);
   const [isDone, setIsDone] = useState(false);
   const timeoutRef = useRef(null);
@@ -34,7 +34,8 @@ const TodoSection = ({ item, deleteTodo }) => {
   };
 
   const handleSaveChanges = () => {
-    return;
+    console.log("end editing triggered, invoking updateTodo");
+    updateTodo(item.id, todoContent);
   };
 
   return (
@@ -66,8 +67,6 @@ export default TodoSection;
 const styles = StyleSheet.create({
   container: {
     padding: 2,
-    borderBottomColor: colors.borderColor,
-    borderBottomWidth: 1,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -75,6 +74,9 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   textInput: {
+    minWidth: "85%",
+    borderBottomColor: colors.borderColor,
+    borderBottomWidth: 1,
     color: colors.lightText,
     fontSize: 28,
   },
