@@ -52,7 +52,7 @@ const TodoSection = ({ item, deleteTodo, updateTodo }) => {
         <TextInput
           style={styles.textInput}
           keyboardAppearance="dark"
-          autoFocus={true}
+          autoFocus={item.content === "" ? true : false}
           value={todoContent}
           onChangeText={handleTextChange}
           onEndEditing={handleSaveChanges}
