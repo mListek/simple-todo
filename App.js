@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
-      <Text style={styles.headerText}>To do:</Text>
+      <Text style={styles.headerText}>Current tasks:</Text>
       <TodoList />
     </View>
   );
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: colors.neonOrange,
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 36,
     margin: 15,
   },
 });
