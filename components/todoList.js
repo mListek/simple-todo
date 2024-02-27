@@ -87,10 +87,9 @@ export default TodoList;
 const styles = StyleSheet.create({
   infoText: {
     color: "white",
-    marginLeft: 20
+    marginLeft: 20,
   },
   buttonContainer: {
-    borderColor: "white",
     marginBottom: 45,
   },
 });
