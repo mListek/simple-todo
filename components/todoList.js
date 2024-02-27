@@ -37,19 +37,19 @@ const TodoList = () => {
   const addTodo = () => {
     const id = Date.now().toString() + Math.random().toString();
     const date = new Date();
-    const dateString = `${date.getFullYear()}.${date.getMonth()}.${date.getDate()} ${date.getHours()}:${
-      date.getMinutes
-    }`;
+    const dateString = `${date.getFullYear()}.${date.getMonth()}.${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
     setTodoList((prev) => [...prev, new Todo(id, "", dateString)]);
   };
 
   const updateTodo = (id, content) => {
+    console.log("Inside updateTodo, content: " + content);
     const updatedTodoIndex = todoList.findIndex((todo) => todo.id === id);
     const updatedTodo = todoList[updatedTodoIndex];
     updatedTodo.content = content;
-    const updatedTodoList = todoList;
+    const updatedTodoList = [...todoList];
     updatedTodoList[updatedTodoIndex] = updatedTodo;
     setTodoList(updatedTodoList);
+    console.log(updatedTodoList);
   };
 
   const deleteTodo = (id) => {
