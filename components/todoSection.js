@@ -1,5 +1,5 @@
 import { View, StyleSheet, TextInput } from "react-native";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 import colors from "../global/colors";
@@ -7,10 +7,26 @@ import colors from "../global/colors";
 const TodoSection = ({ item, deleteTodo }) => {
   const [todoContent, setTodoContent] = useState(item.content);
   const [isDone, setIsDone] = useState(false);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    console.log("Use Effect runs...");
+    if (isDone) {
+      console.log("isDone, setting timeout");
+      timeoutRef.current = setTimeout(() => {
+        console.log("inside setTimeout");
+        deleteTodo(item.id);
+      }, 2000);
+    } else {
+      if (timeoutRef.current) {
+        console.log("else block, clearing timeout");
+        clearTimeout(timeoutRef.current);
+      }
+    }
+  }, [isDone]);
 
   const handleIsDone = () => {
     setIsDone((prev) => !prev);
-    deleteTodo(item.id);
   };
 
   const handleTextChange = (enteredValue) => {
