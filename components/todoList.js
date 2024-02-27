@@ -1,4 +1,4 @@
-import { View, FlatList, StyleSheet } from "react-native";
+import { Text, View, FlatList, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -59,6 +59,9 @@ const TodoList = () => {
 
   return (
     <>
+      {todoList.length === 0 && (
+        <Text style={styles.infoText}>No tasks created yet...</Text>
+      )}
       <FlatList
         data={todoList}
         keyExtractor={(item) => item.id}
@@ -82,6 +85,10 @@ const TodoList = () => {
 export default TodoList;
 
 const styles = StyleSheet.create({
+  infoText: {
+    color: "white",
+    marginLeft: 20
+  },
   buttonContainer: {
     borderColor: "white",
     marginBottom: 45,
