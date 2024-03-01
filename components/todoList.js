@@ -7,10 +7,6 @@ import TodoSection from "./todoSection";
 import Button from "../ui/button";
 import colors from "../global/colors";
 
-const renderTodoItem = (itemData) => {
-  return <TodoSection item={itemData.item} />;
-};
-
 const TodoList = () => {
   const [todoList, setTodoList] = useState([]);
 
