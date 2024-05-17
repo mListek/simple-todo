@@ -78,6 +78,6 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.borderColor,
     borderBottomWidth: 1,
     color: colors.lightText,
-    fontSize: 28,
+    fontSize: 20,
   },
 });
